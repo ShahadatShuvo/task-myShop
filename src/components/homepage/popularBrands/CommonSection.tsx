@@ -7,68 +7,79 @@ interface CommonSectionInterface {
   title: string;
 }
 
+const brandsLogo = [
+  {
+    id: 1,
+    src: "/img/brands/Logo1.svg",
+  },
+  {
+    id: 2,
+    src: "/img/brands/Logo2.svg",
+  },
+  {
+    id: 3,
+    src: "/img/brands/Logo3.svg",
+  },
+  {
+    id: 4,
+    src: "/img/brands/Logo4.svg",
+  },
+  {
+    id: 5,
+    src: "/img/brands/Logo5.svg",
+  },
+  {
+    id: 6,
+    src: "/img/brands/Logo6.svg",
+  },
+];
+
 function CommonSection(props: CommonSectionInterface) {
+  const displayBrandsImg = brandsLogo.map((brand) => {
+    return (
+      <div key={brand.id}>
+        <a href="/">
+          <Image src={brand.src} alt="brands_bg" width={140} height={140} />
+        </a>
+      </div>
+    );
+  });
   return (
     <div className="py-12">
       <div className="mx-32 flex justify-around">
         <div className="relative">
-          <Image
-            src="/img/brands/brands_bg.svg"
-            alt="brands_bg"
-            width={550}
-            height={550}
-          />
+          {props.title === "brands" ? (
+            <Image
+              src="/img/brands/brands_bg.svg"
+              alt="brands_bg"
+              width={550}
+              height={550}
+            />
+          ) : (
+            <Image
+              src="/img/social/bg-social.svg"
+              alt="brands_bg"
+              width={550}
+              height={550}
+            />
+          )}
 
-          <div className="absolute top-32 w-full flex flex-wrap justify-center items-center gap-2">
-            <a href="/">
-              <Image
-                src="/img/brands/Logo1.svg"
-                alt="brands_bg"
-                width={140}
-                height={140}
-              />
-            </a>
-            <a href="/">
-              <Image
-                src="/img/brands/Logo2.svg"
-                alt="brands_bg"
-                width={140}
-                height={140}
-              />
-            </a>
-            <a href="/">
-              <Image
-                src="/img/brands/Logo3.svg"
-                alt="brands_bg"
-                width={140}
-                height={140}
-              />
-            </a>
-            <a href="/">
-              <Image
-                src="/img/brands/Logo4.svg"
-                alt="brands_bg"
-                width={140}
-                height={140}
-              />
-            </a>
-            <a href="/">
-              <Image
-                src="/img/brands/Logo5.svg"
-                alt="brands_bg"
-                width={140}
-                height={140}
-              />
-            </a>
-            <a href="/">
-              <Image
-                src="/img/brands/Logo6.svg"
-                alt="brands_bg"
-                width={140}
-                height={140}
-              />
-            </a>
-          </div>
+          {props.title === "brands" ? (
+            <div className="absolute top-32 w-full flex flex-wrap justify-center items-center gap-2">
+              {displayBrandsImg}
+            </div>
+          ) : (
+            <div className="absolute top-32 -right-16 w-full flex flex-wrap justify-center items-center gap-2">
+              <a href="/">
+                <Image
+                  src="/img/social/man.svg"
+                  alt="brands_bg"
+                  width={280}
+                  height={280}
+                />
+              </a>
+            </div>
+          )}
         </div>
         <div
           className={
@@ -82,7 +93,9 @@ function CommonSection(props: CommonSectionInterface) {
             Life is hard enough already. Let us make it a little easier.
           </p>
           <p className="font-semibold mt-5">
-            See All <ArrowRightAltIcon />
+            <a href="/">
+              See All <ArrowRightAltIcon />
+            </a>
           </p>
         </div>
       </div>
