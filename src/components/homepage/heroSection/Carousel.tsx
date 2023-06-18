@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 function Carousel() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [
-    "https://i.ibb.co/j8G3k01/Enjoy-the-best-shopping-experience-with-us.png",
-    "https://i.ibb.co/qJdhL8n/hero-Img-No-Text2.png",
-    "https://i.ibb.co/kcWpz4C/hero-Img-No-Text3.png",
+    "/img/banner/banner1.png",
+    "/img/banner/banner2.png",
+    "/img/banner/banner3.png",
   ];
 
   const texts = [
@@ -29,7 +29,7 @@ function Carousel() {
 
   return (
     <div className="relative  md:w-full ">
-      <Image
+      <img
         src={images[currentImage]}
         alt="Carousel Image"
         height={50}
