@@ -10,8 +10,19 @@ function ShopByCategory() {
           Life is hard enough already. Let us make it a little easier.
         </p>
       </div>
-      <div>
-        <CategoryCard />
+      <div className="flex justify-center">
+        <div className="mt-16 w-[80vw] flex flex-wrap gap-5 flax-wrap justify-center">
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+        </div>
       </div>
     </div>
   );
