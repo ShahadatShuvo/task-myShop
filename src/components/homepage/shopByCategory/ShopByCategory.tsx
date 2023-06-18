@@ -11,7 +11,7 @@ function ShopByCategory() {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="mt-16 w-[80vw] flex flex-wrap gap-5 flax-wrap justify-center">
+        <div className="mt-16 w-[80vw] flex flex-wrap gap-7 flax-wrap justify-center">
           <CategoryCard />
           <CategoryCard />
           <CategoryCard />
