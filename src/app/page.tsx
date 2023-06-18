@@ -1,3 +1,4 @@
+import FeaturedProduct from "@/components/homepage/featuredProduct/FeaturedProduct";
 import Footer from "@/components/homepage/footer/Footer";
 import HeroSection from "@/components/homepage/heroSection/HeroSection";
 import Navbar from "@/components/homepage/navbar/Navbar";
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <TrendingProducts />
       <ShopByCategory />
+      <FeaturedProduct />
       <Footer />
     </div>
   );
