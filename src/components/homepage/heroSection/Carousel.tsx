@@ -54,6 +54,7 @@ function Carousel() {
               index === currentImage ? "bg-gray-900" : "bg-gray-400"
             }`}
           ></button>
+          // <div></div>
         ))}
       </div>
     </div>
