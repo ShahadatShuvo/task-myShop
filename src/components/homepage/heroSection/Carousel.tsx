@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -41,9 +42,9 @@ function Carousel() {
           {texts[currentImage]}
         </h2>
 
-        <button className="mt-4 my-8 bg-blue-950 text-white rounded-3xl py-2 px-4 ">
-          <Link href="/products">Explore Now</Link>
-        </button>
+        <Button variant="contained" className="rounded-full bg-black">
+          <a href="/">Explore Now</a>
+        </Button>
       </div>
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
         {images.map((image, index) => (
