@@ -28,7 +28,7 @@ function HeroSection() {
             </li>
           </ul>
         </nav>
-        <div>
+        <div className="mt-3">
           <Carousel />
         </div>
       </div>
