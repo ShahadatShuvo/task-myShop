@@ -18,7 +18,7 @@ function TrendingProducts() {
     scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
   };
   return (
-    <div className="w-screen h-[50vh] mt-32">
+    <div className="w-screen h-[50vh] mt-32 mb-10">
       <div className="my-10 flex flex-col items-center">
         <h1 className="capitalize text-4xl font-semibold">
           Shop our trending products
@@ -27,7 +27,7 @@ function TrendingProducts() {
           Life is hard enough already. Let us make it a little easier.
         </p>
       </div>
-      <div className="mb-24 flex justify-center items-center relative">
+      <div className="pb-16 flex justify-center items-center relative">
         <ul className="w-[30%] flex justify-between">
           <li>
             <a
@@ -81,7 +81,7 @@ function TrendingProducts() {
       </div>
       <div className="flex justify-center">
         <div
-          className="py-10 w-[90%] flex gap-5 overflow-x-auto   space-x-4 custom-scrollbar"
+          className="py-10 w-[90%] flex gap-5 overflow-x-auto space-x-4 custom-scrollbar"
           style={{
             scrollBehavior: "smooth",
           }}
