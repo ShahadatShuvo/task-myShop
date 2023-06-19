@@ -47,7 +47,7 @@ function FeaturedProduct() {
     fetchData();
   }, []);
 
-  const displayProducts = Array.isArray(data.products)
+  const displayProducts = Array.isArray(data?.products)
     ? data.products.map((product: any) => (
         <FeaturedCard key={product.id} product={product} />
       ))
