@@ -5,19 +5,26 @@ import CategoryCard from "./CategoryCard";
 import { useContext } from "react";
 import { AllContext } from "../../../app/context";
 import AllProductsDisplay from "./AllProductsDisplay";
+import { Pagination } from "@mui/material";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 function ShopByCategory() {
   const { isLightTheme, toggleTheme, allProducts } = useContext(AllContext);
   const [data, setData] = useState<any>(null);
+  const [page, setPage] = React.useState(1);
 
-  console.log("data:", data);
+  console.log("page:", page);
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let response = await fetch(`${apiUrl}/products`);
+        let response = await fetch(
+          `${apiUrl}/products?limit=12&skip=${12 * page}`
+        );
         if (response.ok) {
           const result = await response.json();
           setData(result);
@@ -29,7 +36,7 @@ function ShopByCategory() {
       }
     };
     fetchData();
-  }, []);
+  }, [page]);
 
   return (
     <div className="mt-64 mx-24">
@@ -41,6 +48,14 @@ function ShopByCategory() {
       </div>
       <div className="flex justify-center">
         <AllProductsDisplay data={data?.products} />
+      </div>
+      <div className="my-10 flex justify-center">
+        <Pagination
+          count={Math.ceil(data?.total / 12 - 1)}
+          color="primary"
+          page={page}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
