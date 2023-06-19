@@ -4,9 +4,9 @@ import Carousel from "./Carousel";
 
 function HeroSection() {
   return (
-    <div className="w-screen h-screen pb-5">
-      <div className="w-full h-full px-24 bg-[url('/img/base.svg')]">
-        <nav>
+    <div className="w-screen md:h-screen md:pb-5">
+      <div className="py-16 md:py-0 w-full md:h-full md:px-24 bg-[url('/img/base.svg')]">
+        <nav className="hidden md:block">
           <ul className="pt-2 flex justify-between items-center">
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
               <a href="/">Jewelry & Accessories</a>
@@ -28,7 +28,7 @@ function HeroSection() {
             </li>
           </ul>
         </nav>
-        <div className="mt-3">
+        <div className="md:mt-3">
           <Carousel />
         </div>
       </div>

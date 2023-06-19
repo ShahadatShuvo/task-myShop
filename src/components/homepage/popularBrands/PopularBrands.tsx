@@ -6,7 +6,7 @@ import CommonSection from "./CommonSection";
 
 function PopularBrands() {
   return (
-    <div className="mt-32 bg-[#F4FCFF] h-[200vh] w-screen">
+    <div className="mt-16 md:mt-32 bg-[#F4FCFF] h-auto md:h-[200vh] w-screen">
       {/* for popular brands  */}
       <div>
         <CommonSection headline="Explore Most Popular Brands" title="brands" />

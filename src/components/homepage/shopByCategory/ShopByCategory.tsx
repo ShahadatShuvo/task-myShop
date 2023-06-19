@@ -38,10 +38,12 @@ function ShopByCategory() {
   }, [page]);
 
   return (
-    <div className="mt-64 mx-24">
+    <div className="md:mt-64 mx-5 md:mx-24">
       <div>
-        <h1 className="capitalize text-4xl font-semibold">Shop by category</h1>
-        <p className="mt-5">
+        <h1 className="capitalize text-xl md:text-4xl font-bold md:font-semibold">
+          Shop by category
+        </h1>
+        <p className="mt-3 md:mt-5">
           Life is hard enough already. Let us make it a little easier.
         </p>
       </div>
