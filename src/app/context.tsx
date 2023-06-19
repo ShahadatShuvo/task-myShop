@@ -4,19 +4,24 @@ import { createContext } from "react";
 
 interface AllProductsInterface {
   id: number | string;
-  title: string;
+  brand: string;
+  category: string;
   description: string;
+  discountPercentage: number;
+  images: string[];
   price: number;
+  rating: number;
   stock: number;
   qty: number;
-  image_url: string;
+  thumbnail: string;
+  title: string;
 }
 
 interface allContextValue {
   isLightTheme: boolean;
   toggleTheme: () => void;
   allProducts: AllProductsInterface[];
-  //   increaseContextValue: (newValue: ProductCardProps) => void;
+  increaseCartValue: (newValue: AllProductsInterface) => void;
   //   decreaseContextValue: (newValue: ProductCardProps) => void;
   //   deleteContextValue: (newValue: ProductCardProps) => void;
 }
@@ -24,9 +29,8 @@ interface allContextValue {
 export const AllContext = createContext<allContextValue>({
   isLightTheme: true,
   toggleTheme: () => {},
-  //   toggleTheme: () => boolean,
   allProducts: [],
-  //   increaseContextValue: () => {},
+  increaseCartValue: () => {},
   //   decreaseContextValue: () => {},
   //   deleteContextValue: () => {},
 });

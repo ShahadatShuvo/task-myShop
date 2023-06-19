@@ -1,6 +1,9 @@
 "use client";
 
 import { IconButton } from "@mui/material";
+import { useContext } from "react";
+import { AllContext } from "../../../app/context";
+
 import Image from "next/image";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import React from "react";
@@ -17,11 +20,18 @@ interface ProductCardProps {
   price: number;
   rating: number;
   stock: number;
+  qty: number;
   thumbnail: string;
   title: string;
 }
 
 function CategoryCard({ product }: { product: ProductCardProps }) {
+  const { allProducts, increaseCartValue } = useContext(AllContext);
+
+  const onHandleClick = (props: ProductCardProps) => {
+    // setCartItems((prevState: ProductCardProps[]) => [...prevState, props]);
+    increaseCartValue(props);
+  };
   return (
     <div>
       <div
@@ -43,7 +53,7 @@ function CategoryCard({ product }: { product: ProductCardProps }) {
 
           <div className="flex items-center">
             <CartViewDialogue product={product} />
-            <OrderSuccess />
+            <OrderSuccess onHandleClick={onHandleClick} product={product} />
           </div>
         </div>
       </div>
