@@ -84,12 +84,70 @@ export default function RootLayout({
       return [...prevState, { ...newValue, qty: 1 }];
     });
   };
+  const decreaseCartValue = (newValue: AllProductsInterface) => {
+    setAllProducts((prevState: AllProductsInterface[] | any) => {
+      const isExist = prevState.find(
+        (item: AllProductsInterface) => item.id === newValue.id
+      );
+      if (isExist) {
+        return prevState.map((item: AllProductsInterface) => {
+          if (item.id === newValue.id) {
+            if (item.qty > 1) {
+              return {
+                ...item,
+                qty: item.qty - 1,
+              };
+            } else {
+              return {
+                ...item,
+                qty: 1,
+              };
+            }
+          }
+          return item;
+        });
+      }
+      return [...prevState, { ...newValue, qty: 1 }];
+    });
+  };
+
+  const deleteCartValue = (newValue: AllProductsInterface) => {
+    setAllProducts((prevState: any) => {
+      // Search for the index of the product to delete
+      const index = prevState.findIndex(
+        (product: AllProductsInterface) => product.id === newValue.id
+      );
+
+      if (index !== -1) {
+        // Create a new array without the product at the found index
+        const newArray = [
+          ...prevState.slice(0, index),
+          ...prevState.slice(index + 1),
+        ];
+        return newArray;
+      }
+
+      // If the product is not found, return the previous state as is
+      return prevState;
+    });
+
+    if (allProducts.length === 1) {
+      setCheck(true);
+    }
+  };
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <AllContext.Provider
-          value={{ isLightTheme, toggleTheme, allProducts, increaseCartValue }}
+          value={{
+            isLightTheme,
+            toggleTheme,
+            allProducts,
+            increaseCartValue,
+            decreaseCartValue,
+            deleteCartValue,
+          }}
         >
           {children}
         </AllContext.Provider>

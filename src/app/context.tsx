@@ -22,8 +22,8 @@ interface allContextValue {
   toggleTheme: () => void;
   allProducts: AllProductsInterface[];
   increaseCartValue: (newValue: AllProductsInterface) => void;
-  //   decreaseContextValue: (newValue: ProductCardProps) => void;
-  //   deleteContextValue: (newValue: ProductCardProps) => void;
+  decreaseCartValue: (newValue: AllProductsInterface) => void;
+  deleteCartValue: (newValue: AllProductsInterface) => void;
 }
 
 export const AllContext = createContext<allContextValue>({
@@ -31,6 +31,6 @@ export const AllContext = createContext<allContextValue>({
   toggleTheme: () => {},
   allProducts: [],
   increaseCartValue: () => {},
-  //   decreaseContextValue: () => {},
-  //   deleteContextValue: () => {},
+  decreaseCartValue: () => {},
+  deleteCartValue: () => {},
 });
