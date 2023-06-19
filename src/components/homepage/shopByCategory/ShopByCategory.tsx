@@ -14,7 +14,6 @@ function ShopByCategory() {
   const [data, setData] = useState<any>(null);
   const [page, setPage] = React.useState(1);
 
-  console.log("page:", page);
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
@@ -51,7 +50,7 @@ function ShopByCategory() {
       </div>
       <div className="my-10 flex justify-center">
         <Pagination
-          count={Math.ceil(data?.total / 12 - 1)}
+          count={data ? Math.ceil(data?.total / 12 - 1) : 5}
           color="primary"
           page={page}
           onChange={handleChange}
