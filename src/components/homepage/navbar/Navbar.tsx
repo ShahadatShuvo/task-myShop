@@ -91,13 +91,7 @@ function Navbar() {
           </Alert>
         </Collapse>
       </div>
-      <header
-        className={
-          isLightTheme
-            ? "text-gray-600 body-font bg-[#1D65FF]"
-            : "text-white body-font bg-[#1F2937]"
-        }
-      >
+      <header className="text-gray-600 body-font bg-[#1D65FF]">
         <div className="py-3 container mx-auto flex flex-wrap flex-col md:flex-row items-center">
           <a
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"

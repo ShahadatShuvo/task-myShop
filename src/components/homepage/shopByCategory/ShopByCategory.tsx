@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import CategoryCard from "./CategoryCard";
 import { useContext } from "react";
 import { AllContext } from "../../../app/context";
 import AllProductsDisplay from "./AllProductsDisplay";
@@ -38,8 +37,8 @@ function ShopByCategory() {
   }, [page]);
 
   return (
-    <div className="md:mt-64 mx-5 md:mx-24">
-      <div>
+    <div>
+      <div className="md:mt-64 mx-5 md:mx-24">
         <h1 className="capitalize text-xl md:text-4xl font-bold md:font-semibold">
           Shop by category
         </h1>
@@ -56,6 +55,7 @@ function ShopByCategory() {
           color="primary"
           page={page}
           onChange={handleChange}
+          className={isLightTheme ? "" : "bg-white py-2 px-4 rounded-xl mb-5"}
         />
       </div>
     </div>

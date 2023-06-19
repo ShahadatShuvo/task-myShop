@@ -37,12 +37,15 @@ function Carousel() {
         width={50}
         className="max-h-full w-full md:object-cover object-fill"
       />
-      <div className="mt-10 md:mt-0 space-y-6 md:my-10 my-0 absolute top-4 md:top-16 lg:top-32 left-4 md:left-10 right-64 lg:right-[600px]">
-        <h2 className="text-blue-950 text-lg font-serif md:text-5xl lg:text-6xl font-bold break-words">
+      <div className="mt-10 md:mt-0 space-y-6 md:my-10 my-0 absolute top-2 md:top-16 lg:top-32 left-2 md:left-10 right-48 lg:right-[600px]">
+        <h2 className="text-blue-950 text-sm font-serif md:text-5xl lg:text-6xl font-bold break-words">
           {texts[currentImage]}
         </h2>
 
-        <Button variant="contained" className="rounded-full bg-black">
+        <Button
+          variant="contained"
+          className="text-sm md:text-lg rounded-full bg-black"
+        >
           <a href="/">Explore Now</a>
         </Button>
       </div>

@@ -199,12 +199,12 @@ export default function MenuBarIcon({
             Add another account
           </MenuItem>
           {/* Theme control start */}
-          <MenuItem onClick={toggleTheme}>
+          <div onClick={toggleTheme}>
             <AntSwitch checked={isLightTheme} />
             <span className="ml-2">
               Switch to{isLightTheme ? " Dark Theme" : " Light Theme"}
             </span>
-          </MenuItem>
+          </div>
           {/* Theme control end */}
           <Link href="/dashboard">
             <MenuItem>
