@@ -27,21 +27,22 @@ function Testimonial() {
   const [isLeftBtn, setIsLeftBtn] = useState(false);
 
   return (
-    <div className="h-[60vh] w-screen mt-76 pb-48">
-      <div className="flex">
+    <div className="mt-10 md:h-[60vh] w-screen md:mt-76 md:pb-48">
+      <div className="flex gap-4 md:gap-0">
         <div className="w-[50%] relative">
           <Image
             src="/img/testimonial/background.svg"
             alt=""
             width={550}
             height={500}
+            className="w-[550px]"
           />
           <Image
             src={isLeftBtn ? testimonialData[0].img : testimonialData[1].img}
             alt=""
-            width={isLeftBtn ? 400 : 400}
-            height={isLeftBtn ? 400 : 400}
-            className="absolute top-0 right-24  bottom-0"
+            width={400}
+            height={400}
+            className="absolute top-0 right-0 md:right-24  bottom-0"
           />
         </div>
         <div className=" w-[50%] flex flex-col justify-center">

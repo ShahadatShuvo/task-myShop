@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 function Footer() {
   return (
-    <footer className="text-white body-font mt-48 bg-[#023F75]">
+    <footer className="text-white body-font mt-24 md:mt-48 bg-[#023F75]">
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
