@@ -16,7 +16,7 @@ function MyApp() {
   return (
     <React.Fragment>
       <IconButton aria-label="added" onClick={handleClickVariant("success")}>
-        <AddCircleOutlineIcon />
+        <AddCircleOutlineIcon color="success" />
       </IconButton>
     </React.Fragment>
   );

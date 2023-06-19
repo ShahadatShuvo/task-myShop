@@ -5,6 +5,7 @@ import Image from "next/image";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import React from "react";
 import OrderSuccess from "./Ordersuccess";
+import CartViewDialogue from "./CartViewDialogue";
 
 interface ProductCardProps {
   id: number | string;
@@ -41,7 +42,10 @@ function CategoryCard({ product }: { product: ProductCardProps }) {
         <div className="mt-5 flex justify-between items-center">
           <p>$ {product.price}</p>
 
-          <OrderSuccess />
+          <div className="flex items-center">
+            <CartViewDialogue product={product} />
+            <OrderSuccess />
+          </div>
         </div>
       </div>
     </div>
