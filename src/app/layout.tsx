@@ -75,7 +75,7 @@ export default function RootLayout({
           if (item.id === newValue.id) {
             return {
               ...item,
-              qty: item.qty + 1,
+              qty: newValue.qty ? newValue.qty + 1 : item.qty + 1,
             };
           }
           return item;

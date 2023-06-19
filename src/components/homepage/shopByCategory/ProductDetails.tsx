@@ -1,6 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
-import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
-import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import { useContext } from "react";
+import { AllContext } from "../../../app/context";
 import NextWeekOutlinedIcon from "@mui/icons-material/NextWeekOutlined";
 import RemoveIcon from "@mui/icons-material/Remove";
 import StarIcon from "@mui/icons-material/Star";
@@ -23,13 +23,21 @@ interface ProductCardProps {
 }
 
 function ProductDetails({ product }: { product: ProductCardProps }) {
-  const [counter, setCounter] = React.useState(0);
+  const { allProducts, increaseCartValue, decreaseCartValue, deleteCartValue } =
+    useContext(AllContext);
+  const [counter, setCounter] = React.useState(
+    allProducts.find((item) => item.id === product.id)?.qty || 1
+  );
   const [favourite, setFavourite] = React.useState(false);
   const [accordion1, setAccordion1] = React.useState(true);
   const [accordion2, setAccordion2] = React.useState(true);
 
   const onHandleFavourite = () => {
     setFavourite((prevState) => !prevState);
+  };
+
+  const onhandleAddCart = (product: any) => {
+    increaseCartValue({ ...product, qty: counter - 1 });
   };
   return (
     <div className=" h-[75vh] flex justify-between gap-5">
@@ -102,6 +110,7 @@ function ProductDetails({ product }: { product: ProductCardProps }) {
           <Button
             variant="contained"
             className="w-[60%] bg-black text-white rounded-full flex justify-center items-center gap-2"
+            onClick={() => onhandleAddCart(product)}
           >
             <NextWeekOutlinedIcon /> <span className="mt-1">Add to Cart</span>
           </Button>
