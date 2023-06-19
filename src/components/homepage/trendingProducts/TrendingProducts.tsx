@@ -2,20 +2,25 @@
 
 import React, { useRef } from "react";
 import TrendingprodCard from "./prodCard";
+import { MutableRefObject } from "react";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { IconButton } from "@mui/material";
 import "./card.css";
 
 function TrendingProducts() {
-  const scrollRef = useRef(null);
+  const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   const scrollLeft = () => {
-    scrollRef.current.scrollLeft -= 400; // Adjust the scroll amount as needed
+    if (scrollRef.current !== null) {
+      scrollRef.current.scrollLeft -= 400; // Adjust the scroll amount as needed
+    }
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
+    if (scrollRef.current !== null) {
+      scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
+    }
   };
   return (
     <div className="w-screen h-[50vh] mt-32 mb-10">
