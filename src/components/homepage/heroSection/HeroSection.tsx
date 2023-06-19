@@ -12,19 +12,19 @@ function HeroSection() {
               <a href="/">Jewelry & Accessories</a>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Jewelry & Accessories</a>
+              <a href="/">Clothing & Shoes</a>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Jewelry & Accessories</a>
+              <a href="/">Home & Living</a>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Jewelry & Accessories</a>
+              <a href="/">Wedding & Party</a>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Jewelry & Accessories</a>
+              <a href="/">Toys & Entertainment</a>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Jewelry & Accessories</a>
+              <a href="/">Art & Collection</a>
             </li>
           </ul>
         </nav>

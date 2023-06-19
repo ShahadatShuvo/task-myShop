@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-function TrendingprodCard() {
+function TrendingprodCard({ img }: { img: string }) {
   return (
     <div>
       <div className="w-[230px] h-[160px] flex justify-between items-center bg-blue-100 hover:bg-red-100 rounded-xl p-5 relative hover:shadow-xl">
@@ -11,7 +11,8 @@ function TrendingprodCard() {
           <p className="text-red-500 font-bold text-sm mt-5">$10.00</p>
         </div>
         <Image
-          src="/img/trending/bottle.svg"
+          // src="/img/trending/bottle.svg"
+          src={img}
           alt=""
           width={60}
           height={60}
