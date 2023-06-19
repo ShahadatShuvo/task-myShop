@@ -24,7 +24,7 @@ interface ProductCardProps {
 }
 
 function CategoryCard({ product }: { product: ProductCardProps }) {
-  const { allProducts, increaseCartValue } = useContext(AllContext);
+  const { increaseCartValue } = useContext(AllContext);
 
   const onHandleClick = (props: ProductCardProps) => {
     // setCartItems((prevState: ProductCardProps[]) => [...prevState, props]);
@@ -32,10 +32,7 @@ function CategoryCard({ product }: { product: ProductCardProps }) {
   };
   return (
     <div>
-      <div
-        className="p-3 border-2 rounded-xl hover:shadow-xl w-[250px] 
-      min-h-[200px]"
-      >
+      <div className="p-3 border-2 rounded-xl hover:shadow-xl w-[250px] min-h-[200px]">
         <Image
           // src="/img/category/tv.svg"
           src={product.images[0]}
