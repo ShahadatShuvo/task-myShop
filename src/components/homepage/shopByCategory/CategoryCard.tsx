@@ -22,7 +22,6 @@ interface ProductCardProps {
 }
 
 function CategoryCard({ product }: { product: ProductCardProps }) {
-  console.log("Img:", product.images[0]);
   return (
     <div>
       <div
