@@ -18,8 +18,6 @@ export default function CartMenu() {
   const { allProducts, increaseCartValue, deleteCartValue } =
     useContext(AllContext);
 
-  console.log("allProducts", allProducts);
-
   const { isLightTheme, toggleTheme } = useContext(AllContext);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -69,11 +67,11 @@ export default function CartMenu() {
           </div>
           <div>
             <p className="mb-8 text-center py-1 border-2 border-green-600 rounded-lg">
-              {product.price * product.qty} TK
+              $ {product.price * product.qty}
             </p>
 
             <Button
-              size="medium"
+              size="small"
               color="error"
               className="bg-red-50"
               onClick={() => handleRemove(product)}
@@ -166,7 +164,7 @@ export default function CartMenu() {
           >
             <div className="pt-3 px-5 font-bold flex justify-between">
               <p>Subtotal</p>
-              <p>{subTotal} TK</p>
+              <p>$ {subTotal} </p>
             </div>
             <Link href="/checkout">
               <div className="px-5 py-3 pt-5  flex justify-between gap-2">

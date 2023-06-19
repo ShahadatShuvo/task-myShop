@@ -8,6 +8,41 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 import { IconButton } from "@mui/material";
 import "./card.css";
 
+const prodImg = [
+  {
+    id: 1,
+    img: "/img/trending/bottle.svg",
+  },
+  {
+    id: 2,
+    img: "/img/trending/lotion.svg",
+  },
+  {
+    id: 3,
+    img: "/img/trending/watch.svg",
+  },
+  {
+    id: 4,
+    img: "/img/trending/table.svg",
+  },
+  {
+    id: 5,
+    img: "/img/trending/bottle.svg",
+  },
+  {
+    id: 6,
+    img: "/img/trending/lotion.svg",
+  },
+  {
+    id: 7,
+    img: "/img/trending/watch.svg",
+  },
+  {
+    id: 8,
+    img: "/img/trending/table.svg",
+  },
+];
+
 function TrendingProducts() {
   const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
@@ -22,6 +57,10 @@ function TrendingProducts() {
       scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
     }
   };
+
+  const displayProducts = prodImg.map((prod) => (
+    <TrendingprodCard key={prod.id} img={prod.img} />
+  ));
   return (
     <div className="w-screen h-[50vh] mt-32 mb-10">
       <div className="my-10 flex flex-col items-center">
@@ -47,7 +86,7 @@ function TrendingProducts() {
               href="/"
               className="font-semibold hover:border-b-2 hover:border-black"
             >
-              Fashion
+              Technology
             </a>
           </li>
           <li>
@@ -55,7 +94,7 @@ function TrendingProducts() {
               href="/"
               className="font-semibold hover:border-b-2 hover:border-black"
             >
-              Fashion
+              Service
             </a>
           </li>
           <li>
@@ -63,7 +102,7 @@ function TrendingProducts() {
               href="/"
               className="font-semibold hover:border-b-2 hover:border-black"
             >
-              Fashion
+              Food & Drink
             </a>
           </li>
         </ul>
@@ -93,13 +132,7 @@ function TrendingProducts() {
           ref={scrollRef}
         >
           {/* cart start */}
-          <TrendingprodCard />
-          <TrendingprodCard />
-          <TrendingprodCard />
-          <TrendingprodCard />
-          <TrendingprodCard />
-          <TrendingprodCard />
-          <TrendingprodCard />
+          {displayProducts}
           {/* cart end */}
         </div>
       </div>

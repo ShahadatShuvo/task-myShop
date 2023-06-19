@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MutableRefObject } from "react";
 
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
@@ -10,7 +10,12 @@ import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOu
 import { IconButton } from "@mui/material";
 import "../trendingProducts/card.css";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 function FeaturedProduct() {
+  const [data, setData] = useState<any>(null);
+  console.log("data:", data);
+
   const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   const scrollLeft = () => {
@@ -24,6 +29,30 @@ function FeaturedProduct() {
       scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let response = await fetch(`${apiUrl}/products?limit=10&skip=${40}`);
+        if (response.ok) {
+          const result = await response.json();
+          setData(result);
+        } else {
+          throw new Error("Request failed");
+        }
+      } catch (error) {
+        console.log("error:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const displayProducts = Array.isArray(data?.products)
+    ? data.products.map((product: any) => (
+        <FeaturedCard key={product.id} product={product} />
+      ))
+    : null;
+
   return (
     <div className="mt-32 mx-32">
       <div className="text-center relative">
@@ -63,12 +92,7 @@ function FeaturedProduct() {
           }}
           ref={scrollRef}
         >
-          <FeaturedCard />
-          <FeaturedCard />
-          <FeaturedCard />
-          <FeaturedCard />
-          <FeaturedCard />
-          <FeaturedCard />
+          {displayProducts}
         </div>
       </div>
     </div>
