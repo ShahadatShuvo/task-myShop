@@ -27,7 +27,7 @@ function Testimonial() {
   const [isLeftBtn, setIsLeftBtn] = useState(false);
 
   return (
-    <div className="h-[60vh] w-screen mt-76 pt-24">
+    <div className="h-[60vh] w-screen mt-76 pb-48">
       <div className="flex">
         <div className="w-[50%] relative">
           <Image
