@@ -55,7 +55,9 @@ function ShopByCategory() {
           color="primary"
           page={page}
           onChange={handleChange}
-          className={isLightTheme ? "" : "bg-white py-2 px-4 rounded-xl mb-5"}
+          className={
+            isLightTheme ? "" : "bg-white py-2 md:px-4 rounded-xl mb-5"
+          }
         />
       </div>
     </div>
