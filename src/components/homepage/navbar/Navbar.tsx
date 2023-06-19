@@ -1,17 +1,76 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Badge, IconButton } from "@mui/material";
 import Image from "next/image";
 import MenuBarIcon from "./ProfileMenu";
 import CartMenu from "./CartMenu";
+import Alert from "@mui/material/Alert";
+import Collapse from "@mui/material/Collapse";
+import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
 
 function Navbar() {
+  const [openHeadline, setOpenHeadline] = useState(true);
+
   const [displaySearch, setDisplaySearch] = React.useState(false);
   return (
     <div>
+      <div>
+        <Collapse in={openHeadline}>
+          <Alert
+            icon={
+              <FeedOutlinedIcon fontSize="inherit" className="text-gray-600" />
+            }
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setOpenHeadline(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+            className="bg-gray-100 text-gray-600"
+            sx={{
+              padding: "0px 16px",
+              // bgcolor: "white",
+              marginTop: "5px",
+              marginX: "5px",
+              border: "1px solid black",
+              ".css-1pxa9xg-MuiAlert-message": {
+                padding: "3px 0px",
+              },
+            }}
+          >
+            <div className="relative">
+              <p className="absolute hidden md:block top-1 font-semibold text-gray-500">
+                Headline
+              </p>
+              <div className="w-full flex justify-center">
+                <div className=" w-full md:w-[85%]">
+                  <div className="relative flex overflow-x-hidden text-lg">
+                    <div className="animate-marquee whitespace-nowrap">
+                      <span>
+                        SnipShop. Here, You will quickly get all kinds of your
+                        daily Shopping, with only 1 click from your{" "}
+                        <span className="text-blue-400">Home or Office</span>.
+                        স্নিপশপ এখানে, আপনি আপনার বাসা বা অফিস থেকে মাত্র 1
+                        ক্লিকে আপনার দৈনন্দিন সব ধরনের কেনাকাটা পেয়ে যাবেন, খুব
+                        সহজে।
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Alert>
+        </Collapse>
+      </div>
       <header className="text-gray-600 body-font bg-[#1D65FF]">
         <div className="py-3 container mx-auto flex flex-wrap flex-col md:flex-row items-center">
           <a
@@ -65,7 +124,10 @@ function Navbar() {
                 <SearchOutlinedIcon />
               </IconButton>
             )}
-            <MenuBarIcon />
+            <MenuBarIcon
+              openHeadline={openHeadline}
+              setOpenHeadline={setOpenHeadline}
+            />
             <Badge
               badgeContent={3}
               color="error"

@@ -20,7 +20,13 @@ import * as React from "react";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
-export default function MenuBarIcon() {
+export default function MenuBarIcon({
+  openHeadline,
+  setOpenHeadline,
+}: {
+  openHeadline: boolean;
+  setOpenHeadline: any;
+}) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -112,6 +118,21 @@ export default function MenuBarIcon() {
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <FavoriteBorderIcon /> <p className="ml-3">Wishlist</p>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setOpenHeadline((prevState: any) => !prevState);
+          }}
+        >
+          {openHeadline ? (
+            <div className="flex">
+              <LockOutlinedIcon /> <p className="ml-3">Close Headline Bar</p>
+            </div>
+          ) : (
+            <div className="flex">
+              <LockOpenIcon /> <p className="ml-3">Open Headline Bar</p>
+            </div>
+          )}
         </MenuItem>
 
         <MenuItem onClick={handleClose}>
