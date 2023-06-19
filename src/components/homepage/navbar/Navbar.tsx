@@ -1,5 +1,7 @@
 "use client";
 
+import { useContext } from "react";
+import { AllContext } from "../../../app/context";
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -12,6 +14,8 @@ import Collapse from "@mui/material/Collapse";
 import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
 
 function Navbar() {
+  const { isLightTheme, toggleTheme } = useContext(AllContext);
+
   const [openHeadline, setOpenHeadline] = useState(true);
 
   const [displaySearch, setDisplaySearch] = React.useState(false);
@@ -21,7 +25,10 @@ function Navbar() {
         <Collapse in={openHeadline}>
           <Alert
             icon={
-              <FeedOutlinedIcon fontSize="inherit" className="text-gray-600" />
+              <FeedOutlinedIcon
+                fontSize="inherit"
+                className={isLightTheme ? "text-gray-500" : "text-cyan-400"}
+              />
             }
             action={
               <IconButton
@@ -32,10 +39,13 @@ function Navbar() {
                   setOpenHeadline(false);
                 }}
               >
-                <CloseIcon fontSize="inherit" />
+                <CloseIcon
+                  fontSize="inherit"
+                  className={isLightTheme ? "text-gray-500" : "text-cyan-400"}
+                />
               </IconButton>
             }
-            className="bg-gray-100 text-gray-600"
+            className={isLightTheme ? "bg-white" : "bg-[#1F2937]"}
             sx={{
               padding: "0px 16px",
               // bgcolor: "white",
@@ -48,18 +58,28 @@ function Navbar() {
             }}
           >
             <div className="relative">
-              <p className="absolute hidden md:block top-1 font-semibold text-gray-500">
-                Headline
+              <p className="absolute hidden md:block top-1 font-semibold ">
+                <span
+                  className={isLightTheme ? "text-gray-500" : "text-cyan-400"}
+                >
+                  Headline
+                </span>
               </p>
               <div className="w-full flex justify-center">
                 <div className=" w-full md:w-[85%]">
                   <div className="relative flex overflow-x-hidden text-lg">
                     <div className="animate-marquee whitespace-nowrap">
-                      <span>
+                      <span className={isLightTheme ? "" : "text-cyan-400"}>
                         SnipShop. Here, You will quickly get all kinds of your
                         daily Shopping, with only 1 click from your{" "}
-                        <span className="text-blue-400">Home or Office</span>.
-                        স্নিপশপ এখানে, আপনি আপনার বাসা বা অফিস থেকে মাত্র 1
+                        <span
+                          className={
+                            isLightTheme ? "text-blue-400" : "text-pink-400"
+                          }
+                        >
+                          Home or Office
+                        </span>
+                        . স্নিপশপ এখানে, আপনি আপনার বাসা বা অফিস থেকে মাত্র 1
                         ক্লিকে আপনার দৈনন্দিন সব ধরনের কেনাকাটা পেয়ে যাবেন, খুব
                         সহজে।
                       </span>
@@ -71,7 +91,13 @@ function Navbar() {
           </Alert>
         </Collapse>
       </div>
-      <header className="text-gray-600 body-font bg-[#1D65FF]">
+      <header
+        className={
+          isLightTheme
+            ? "text-gray-600 body-font bg-[#1D65FF]"
+            : "text-white body-font bg-[#1F2937]"
+        }
+      >
         <div className="py-3 container mx-auto flex flex-wrap flex-col md:flex-row items-center">
           <a
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"

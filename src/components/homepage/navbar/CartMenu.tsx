@@ -2,6 +2,7 @@
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useContext } from "react";
+import { AllContext } from "../../../app/context";
 // import { CartItemContext } from "@/app/_page";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -41,6 +42,8 @@ const contextValue = [
 ];
 
 export default function CartMenu() {
+  const { isLightTheme, toggleTheme } = useContext(AllContext);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -69,7 +72,13 @@ export default function CartMenu() {
               className="rounded-md h-[88px] object-cover my-auto mr-3"
             />
             <div>
-              <h3 className="font-semibold text-gray-700 text-lg">
+              <h3
+                className={
+                  isLightTheme
+                    ? "font-semibold text-gray-700 text-lg"
+                    : "font-semibold text-white text-lg"
+                }
+              >
                 {product.title}
               </h3>
               <p className="text-gray-400 mb-5">{product.description}</p>
@@ -146,20 +155,42 @@ export default function CartMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <div className="w-[30vw]">
+        <div
+          className={
+            isLightTheme ? "w-[30vw]" : "w-[30vw] bg-[#1F2937] text-white"
+          }
+        >
           <div className="px-5 pt-5 max-h-[65vh] overflow-y-scroll hide-scrollbar">
-            <h1 className=" text-xl font-bold text-gray-500">Shopping Cart</h1>
+            <h1
+              className={
+                isLightTheme
+                  ? "text-xl font-bold text-gray-500"
+                  : "text-xl font-bold text-white"
+              }
+            >
+              Shopping Cart
+            </h1>
             {allCartItems}
           </div>
 
-          <div className="mt-3 pb-3 bg-blue-50">
+          <div
+            className={
+              isLightTheme ? "mt-3 pb-3 bg-blue-50" : "mt-3 pb-3 bg-[#1F2937]"
+            }
+          >
             <div className="pt-3 px-5 font-bold flex justify-between">
               <p>Subtotal</p>
               <p>{subTotal} TK</p>
             </div>
             <Link href="/checkout">
               <div className="px-5 py-3 pt-5  flex justify-between gap-2">
-                <p className="w-full px-6 py-2 rounded-full text-center drop-shadow-md hover:drop-shadow-xl bg-gray-800 hover:bg-gray-950 text-white font-semibold">
+                <p
+                  className={
+                    isLightTheme
+                      ? "w-full px-6 py-2 rounded-full text-center drop-shadow-md hover:drop-shadow-xl bg-gray-800 hover:bg-gray-950 text-white font-semibold"
+                      : "w-full px-6 py-2 rounded-full text-center drop-shadow-md hover:drop-shadow-xl bg-white hover:bg-blue-100 text-black font-semibold"
+                  }
+                >
                   Check out
                 </p>
               </div>
