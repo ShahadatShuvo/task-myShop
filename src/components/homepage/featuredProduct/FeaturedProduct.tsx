@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
+import { MutableRefObject } from "react";
+
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import FeaturedCard from "./FeaturedCard";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
@@ -9,14 +11,18 @@ import { IconButton } from "@mui/material";
 import "../trendingProducts/card.css";
 
 function FeaturedProduct() {
-  const scrollRef = useRef(null);
+  const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   const scrollLeft = () => {
-    scrollRef.current.scrollLeft -= 400; // Adjust the scroll amount as needed
+    if (scrollRef.current !== null) {
+      scrollRef.current.scrollLeft -= 400; // Adjust the scroll amount as needed
+    }
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
+    if (scrollRef.current !== null) {
+      scrollRef.current.scrollLeft += 400; // Adjust the scroll amount as needed
+    }
   };
   return (
     <div className="mt-32 mx-32">
