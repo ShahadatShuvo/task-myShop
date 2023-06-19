@@ -25,7 +25,7 @@ function CategoryCard({ product }: { product: ProductCardProps }) {
   return (
     <div>
       <div
-        className="p-3 border-2 rounded-xl hover:shadow-xl min-w-[250px] 
+        className="p-3 border-2 rounded-xl hover:shadow-xl w-[250px] 
       min-h-[200px]"
       >
         <Image
@@ -36,12 +36,10 @@ function CategoryCard({ product }: { product: ProductCardProps }) {
           height={80}
           className="object-cover h-[100px] w-full"
         />
-        <p className="mt-3 font-bold">Smart Television</p>
+        <p className="mt-3 font-bold truncate">{product.title}</p>
 
         <div className="mt-5 flex justify-between items-center">
-          <p>
-            $ 56.00 <span className="ml-3 text-red-400">$ 60.00</span>
-          </p>
+          <p>$ {product.price}</p>
 
           <OrderSuccess />
         </div>
