@@ -15,7 +15,8 @@ import * as React from "react";
 import Link from "next/link";
 
 export default function CartMenu() {
-  const { allProducts, increaseCartValue } = useContext(AllContext);
+  const { allProducts, increaseCartValue, deleteCartValue } =
+    useContext(AllContext);
 
   console.log("allProducts", allProducts);
 
@@ -34,6 +35,9 @@ export default function CartMenu() {
     (acc: number, item: any) => acc + item.price * item.qty,
     0
   );
+  const handleRemove = (product: any) => {
+    deleteCartValue(product);
+  };
 
   const allCartItems = allProducts.map((product: any) => {
     return (
@@ -68,7 +72,12 @@ export default function CartMenu() {
               {product.price * product.qty} TK
             </p>
 
-            <Button size="medium" color="error" className="bg-red-50">
+            <Button
+              size="medium"
+              color="error"
+              className="bg-red-50"
+              onClick={() => handleRemove(product)}
+            >
               Remove
             </Button>
           </div>
