@@ -6,7 +6,22 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import React from "react";
 import OrderSuccess from "./Ordersuccess";
 
-function CategoryCard() {
+interface ProductCardProps {
+  id: number | string;
+  brand: string;
+  category: string;
+  description: string;
+  discountPercentage: number;
+  images: string[];
+  price: number;
+  rating: number;
+  stock: number;
+  thumbnail: string;
+  title: string;
+}
+
+function CategoryCard({ product }: { product: ProductCardProps }) {
+  console.log("Img:", product.images[0]);
   return (
     <div>
       <div
@@ -14,7 +29,8 @@ function CategoryCard() {
       min-h-[200px]"
       >
         <Image
-          src="/img/category/tv.svg"
+          // src="/img/category/tv.svg"
+          src={product.images[0]}
           alt=""
           width={80}
           height={80}
