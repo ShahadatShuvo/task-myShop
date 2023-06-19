@@ -41,39 +41,45 @@ export default function CartMenu() {
     return (
       <div key={product.id}>
         <div id="single-product" className="my-5 flex justify-between">
-          <div className="min-w-[80%] flex">
+          <div className="min-w-[80%] flex md:gap-2">
             <Image
               // src="/img/cart/shoe.jpg"
               src={product.images[0]}
               alt="shopbag"
               width={90}
               height={50}
-              className="rounded-md h-[88px] object-cover my-auto mr-3"
+              className="rounded-md w-[50px] md:w-[90px] md:h-[88px] object-cover my-auto mr-3"
             />
             <div>
               <h3
                 className={
                   isLightTheme
-                    ? "font-semibold text-gray-700 text-md"
-                    : "font-semibold text-white text-md"
+                    ? "w-[70%] font-semibold text-gray-700 text-sm md:text-md truncate"
+                    : "w-[70%] font-semibold text-white text-sm md:text-md truncate"
                 }
               >
                 {product.title}
               </h3>
-              <p className="text-gray-400 mb-5">{product.brand}</p>
-              <p className="text-gray-400 ">Price: {product.price}</p>
-              <p className="text-gray-400">Qty: {product.qty}</p>
+              <p className="text-gray-400 mb-5 text-sm md:text-md">
+                {product.brand}
+              </p>
+              <p className="text-gray-400 text-sm md:text-md">
+                Price: {product.price}
+              </p>
+              <p className="text-gray-400 text-sm md:text-md">
+                Qty: {product.qty}
+              </p>
             </div>
           </div>
           <div>
-            <p className="mb-8 text-center py-1 border-2 border-green-600 rounded-lg">
+            <p className="mb-8 text-center py-1 border-2 border-green-600 rounded-lg text-sm md:text-md">
               $ {product.price * product.qty}
             </p>
 
             <Button
               size="small"
               color="error"
-              className="bg-red-50"
+              className="bg-red-50 text-sm md:text-md"
               onClick={() => handleRemove(product)}
             >
               Remove
@@ -141,7 +147,9 @@ export default function CartMenu() {
       >
         <div
           className={
-            isLightTheme ? "w-[30vw]" : "w-[30vw] bg-[#1F2937] text-white"
+            isLightTheme
+              ? "w-[90vw] pr-2 md:pr-0 md:w-[32vw]"
+              : "w-[90vw] pr-2 md:pr-0 md:w-[32vw] bg-[#1F2937] text-white"
           }
         >
           <div className="px-5 pt-5 max-h-[65vh] overflow-y-scroll hide-scrollbar">
