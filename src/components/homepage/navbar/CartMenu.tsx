@@ -14,34 +14,11 @@ import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
 
-const contextValue = [
-  {
-    id: 1,
-    title: "Shoe",
-    description: "This is a shoe",
-    price: 100,
-    qty: 1,
-    image_url: "/img/cart/shoe.jpg",
-  },
-  {
-    id: 2,
-    title: "Shoe",
-    description: "This is a shoe",
-    price: 100,
-    qty: 1,
-    image_url: "/img/cart/shoe.jpg",
-  },
-  {
-    id: 3,
-    title: "Shoe",
-    description: "This is a shoe",
-    price: 100,
-    qty: 1,
-    image_url: "/img/cart/shoe.jpg",
-  },
-];
-
 export default function CartMenu() {
+  const { allProducts, increaseCartValue } = useContext(AllContext);
+
+  console.log("allProducts", allProducts);
+
   const { isLightTheme, toggleTheme } = useContext(AllContext);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -53,19 +30,19 @@ export default function CartMenu() {
     setAnchorEl(null);
   };
 
-  const subTotal = contextValue.reduce(
+  const subTotal = allProducts.reduce(
     (acc: number, item: any) => acc + item.price * item.qty,
     0
   );
 
-  const allCartItems = contextValue.map((product: any) => {
+  const allCartItems = allProducts.map((product: any) => {
     return (
       <div key={product.id}>
         <div id="single-product" className="my-5 flex justify-between">
-          <div className="min-w-[70%] flex">
+          <div className="min-w-[80%] flex">
             <Image
               // src="/img/cart/shoe.jpg"
-              src={product.image_url}
+              src={product.images[0]}
               alt="shopbag"
               width={90}
               height={50}
@@ -75,13 +52,13 @@ export default function CartMenu() {
               <h3
                 className={
                   isLightTheme
-                    ? "font-semibold text-gray-700 text-lg"
-                    : "font-semibold text-white text-lg"
+                    ? "font-semibold text-gray-700 text-md"
+                    : "font-semibold text-white text-md"
                 }
               >
                 {product.title}
               </h3>
-              <p className="text-gray-400 mb-5">{product.description}</p>
+              <p className="text-gray-400 mb-5">{product.brand}</p>
               <p className="text-gray-400 ">Price: {product.price}</p>
               <p className="text-gray-400">Qty: {product.qty}</p>
             </div>

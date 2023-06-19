@@ -14,7 +14,7 @@ import Collapse from "@mui/material/Collapse";
 import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
 
 function Navbar() {
-  const { isLightTheme, toggleTheme } = useContext(AllContext);
+  const { isLightTheme, allProducts } = useContext(AllContext);
 
   const [openHeadline, setOpenHeadline] = useState(true);
 
@@ -155,7 +155,7 @@ function Navbar() {
               setOpenHeadline={setOpenHeadline}
             />
             <Badge
-              badgeContent={3}
+              badgeContent={allProducts.length}
               color="error"
               sx={{
                 mt: "2px",

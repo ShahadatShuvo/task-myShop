@@ -30,7 +30,7 @@ function MyApp({
 
   const handleClickVariant = (variant: VariantType) => () => {
     // variant could be success, error, warning, info, or default
-    enqueueSnackbar("I am an exception", {
+    enqueueSnackbar("Product Successfully Added to Cart!", {
       variant,
       autoHideDuration: 3000,
     });

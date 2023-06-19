@@ -34,8 +34,32 @@ export default function RootLayout({
 }) {
   const [allProducts, setAllProducts] = useState<any>([]);
   const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
+  const [check, setCheck] = useState(false);
 
-  console.log("allProducts", allProducts);
+  React.useEffect(() => {
+    // const check = JSON.parse(localStorage.getItem("check") || "true");
+
+    if (allProducts.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(allProducts));
+    } else {
+      const cartData = JSON.parse(localStorage.getItem("cart") || "[]");
+      if (cartData.length === 1 && check === true) {
+        localStorage.removeItem("cart");
+      }
+    }
+  }, [allProducts, check]);
+
+  React.useEffect(() => {
+    const cartData = localStorage.getItem("cart");
+    if (cartData) {
+      try {
+        const parsedData = JSON.parse(cartData);
+        setAllProducts(parsedData);
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
+    }
+  }, []);
 
   const toggleTheme = () => {
     setIsLightTheme((prevTheme: boolean) => !prevTheme);
