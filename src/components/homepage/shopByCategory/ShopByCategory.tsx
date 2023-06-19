@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import { useContext } from "react";
 import { AllContext } from "../../../app/context";
+import AllProductsDisplay from "./AllProductsDisplay";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -39,18 +40,7 @@ function ShopByCategory() {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="mt-16 w-[80vw] flex flex-wrap gap-7 flax-wrap justify-center">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-        </div>
+        <AllProductsDisplay data={data?.products} />
       </div>
     </div>
   );
