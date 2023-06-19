@@ -17,6 +17,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [allProducts, setAllProducts] = useState<any>([]);
   const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
 
   const toggleTheme = () => {
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AllContext.Provider value={{ isLightTheme, toggleTheme }}>
+        <AllContext.Provider value={{ isLightTheme, toggleTheme, allProducts }}>
           {children}
         </AllContext.Provider>
       </body>
