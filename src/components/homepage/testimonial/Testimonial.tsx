@@ -5,6 +5,8 @@ import Image from "next/image";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { IconButton } from "@mui/material";
+import { useContext } from "react";
+import { AllContext } from "../../../app/context";
 
 const testimonialData = [
   {
@@ -24,11 +26,13 @@ const testimonialData = [
 ];
 
 function Testimonial() {
+  const { isLightTheme, toggleTheme, allProducts } = useContext(AllContext);
+
   const [isLeftBtn, setIsLeftBtn] = useState(false);
 
   return (
-    <div className="mt-10 md:h-[60vh] w-screen md:mt-76 md:pb-48">
-      <div className="flex gap-4 md:gap-0">
+    <div className="mt-6 md:mt-10 md:h-[60vh] w-screen md:mt-76 md:pb-48">
+      <div className="h-full flex items-center gap-4 md:gap-0">
         <div className="w-[50%] relative">
           <Image
             src="/img/testimonial/background.svg"
@@ -42,12 +46,12 @@ function Testimonial() {
             alt=""
             width={400}
             height={400}
-            className="absolute top-0 right-0 md:right-24  bottom-0"
+            className="absolute top-0 right-0 md:right-24 bottom-0"
           />
         </div>
         <div className=" w-[50%] flex flex-col justify-center">
           <div className="flex">
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-lg md:text-2xl font-bold">
               {isLeftBtn ? testimonialData[0].name : testimonialData[1].name}
             </h2>
             <Image
@@ -63,20 +67,28 @@ function Testimonial() {
               : testimonialData[1].position}
           </p>
 
-          <p className="w-[60%] mt-10">
+          <p className="w-[90%] md:w-[60%] text-sm md:text-md mt-5 md:mt-10">
             {isLeftBtn ? testimonialData[0].quote : testimonialData[1].quote}
           </p>
-          <div className="mt-10">
+          <div className="mt-5 md:mt-10">
             <IconButton
               aria-label="left"
-              className="active:text-blue-400"
+              className={
+                isLightTheme
+                  ? "active:text-blue-400"
+                  : "text-white active:text-blue-400"
+              }
               onClick={() => setIsLeftBtn((prevState) => !prevState)}
             >
               <ArrowCircleLeftOutlinedIcon />
             </IconButton>
             <IconButton
               aria-label="right"
-              className="active:text-blue-400"
+              className={
+                isLightTheme
+                  ? "active:text-blue-400"
+                  : "text-white active:text-blue-400"
+              }
               onClick={() => setIsLeftBtn((prevState) => !prevState)}
             >
               <ArrowCircleRightOutlinedIcon />

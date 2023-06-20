@@ -9,10 +9,14 @@ import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutl
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { IconButton } from "@mui/material";
 import "../trendingProducts/card.css";
+import { useContext } from "react";
+import { AllContext } from "../../../app/context";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 function FeaturedProduct() {
+  const { isLightTheme, toggleTheme, allProducts } = useContext(AllContext);
+
   const [data, setData] = useState<any>(null);
   console.log("data:", data);
 
@@ -71,14 +75,22 @@ function FeaturedProduct() {
           <div className="flex w-full">
             <IconButton
               aria-label="left"
-              className="active:text-blue-400"
+              className={
+                isLightTheme
+                  ? "active:text-blue-400"
+                  : "text-white active:text-blue-400"
+              }
               onClick={scrollLeft}
             >
               <ArrowCircleLeftOutlinedIcon />
             </IconButton>
             <IconButton
               aria-label="right"
-              className="active:text-blue-400"
+              className={
+                isLightTheme
+                  ? "active:text-blue-400"
+                  : "text-white active:text-blue-400"
+              }
               onClick={scrollRight}
             >
               <ArrowCircleRightOutlinedIcon />
