@@ -35,9 +35,9 @@ function Carousel() {
         alt="Carousel Image"
         height={50}
         width={50}
-        className="max-h-full h-64 w-full md:object-cover object-fill"
+        className="max-h-full w-full md:object-cover object-fill"
       />
-      <div className="mt-10 md:mt-0 space-y-6 md:my-10 my-0 absolute top-16 md:top-16 lg:top-32 left-2 md:left-10 right-48 lg:right-[600px]">
+      <div className="mt-10 md:mt-0 space-y-6 md:my-10 my-0 absolute top-5 lg:top-32 left-2 md:left-10 right-48 lg:right-[600px]">
         <h2 className="text-blue-950 text-sm font-serif md:text-5xl lg:text-6xl font-bold break-words">
           {texts[currentImage]}
         </h2>
