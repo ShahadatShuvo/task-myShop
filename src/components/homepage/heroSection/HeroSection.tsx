@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 function HeroSection() {
   return (
     <div className="w-screen md:h-screen md:pb-5">
-      <div className="py-16 md:py-0 w-full md:h-full md:px-24 bg-[url('/img/base.svg')]">
+      <div className="py-24 md:py-0 w-full md:h-full md:px-24 bg-[url('/img/base.svg')]">
         <nav className="hidden md:block">
           <ul className="pt-2 flex justify-between items-center">
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">

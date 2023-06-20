@@ -7,7 +7,8 @@ import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutl
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { IconButton } from "@mui/material";
 import "./card.css";
-
+import { useContext } from "react";
+import { AllContext } from "../../../app/context";
 const prodImg = [
   {
     id: 1,
@@ -44,6 +45,8 @@ const prodImg = [
 ];
 
 function TrendingProducts() {
+  const { isLightTheme, toggleTheme, allProducts } = useContext(AllContext);
+
   const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   const scrollLeft = () => {
@@ -110,14 +113,22 @@ function TrendingProducts() {
           <div className="hidden md:block absolute right-16">
             <IconButton
               aria-label="left"
-              className="active:text-blue-400"
+              className={
+                isLightTheme
+                  ? "active:text-blue-400"
+                  : "text-white active:text-blue-400"
+              }
               onClick={scrollLeft}
             >
               <ArrowCircleLeftOutlinedIcon />
             </IconButton>
             <IconButton
               aria-label="right"
-              className="active:text-blue-400"
+              className={
+                isLightTheme
+                  ? "active:text-blue-400"
+                  : "text-white active:text-blue-400"
+              }
               onClick={scrollRight}
             >
               <ArrowCircleRightOutlinedIcon />
