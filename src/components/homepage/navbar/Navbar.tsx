@@ -106,7 +106,7 @@ function Navbar() {
             />
           </a>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <div className="w-[40vw] md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <div className="mb-3 md:mb-0 w-[80%] md:w-[40vw] md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
               {displaySearch && (
                 <div className="w-full relative flex items-center">
                   <input
@@ -117,12 +117,12 @@ function Navbar() {
                     autoFocus
                     //   onChange={handleSearchChange}
                     //   value={searchValue}
-                    className="bg-blue-50 h-10 shadow-sm  block w-full sm:text-sm rounded-full  px-12 focus:outline-none "
+                    className="bg-blue-50 h-7 md:h-10 shadow-sm  block w-full sm:text-sm rounded-full px-8 md:px-12 focus:outline-none text-sm md:text-md"
                   />
-                  <div className="absolute left-3">
+                  <div className="absolute left-1 md:left-3">
                     <SearchOutlinedIcon />
                   </div>
-                  <div className="absolute right-2">
+                  <div className="absolute right-0 md:right-2">
                     <IconButton
                       aria-label="delete"
                       onClick={() => setDisplaySearch(false)}
