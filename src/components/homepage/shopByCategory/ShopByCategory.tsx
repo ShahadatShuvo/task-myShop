@@ -94,6 +94,9 @@ function ShopByCategory() {
               label="Select a Category"
               onChange={handleCategoryChange}
             >
+              <MenuItem value="">
+                <em>All products</em>
+              </MenuItem>
               {allCategories?.map((category: any) => (
                 <MenuItem key={category} value={category}>
                   {category}
