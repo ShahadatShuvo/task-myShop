@@ -4,6 +4,7 @@ import { SnackbarProvider, VariantType, useSnackbar } from "notistack";
 import { Button } from "@mui/material";
 import { IconButton } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import NextWeekOutlinedIcon from "@mui/icons-material/NextWeekOutlined";
 import * as React from "react";
 
 interface ProductCardProps {
@@ -51,10 +52,19 @@ function MyApp({
         >
           Order Now
         </Button>
-      ) : (
+      ) : type === "icon" ? (
         <IconButton aria-label="added" onClick={handleClickVariant("success")}>
           <AddCircleOutlineIcon color="success" />
         </IconButton>
+      ) : (
+        <Button
+          variant="contained"
+          className="text-sm md:text-md w-[60%] bg-black text-white rounded-full flex justify-center items-center md:gap-2"
+          onClick={handleClickVariant("success")}
+        >
+          <NextWeekOutlinedIcon />
+          <span className="md:mt-1">Add to Cart</span>
+        </Button>
       )}
     </React.Fragment>
   );

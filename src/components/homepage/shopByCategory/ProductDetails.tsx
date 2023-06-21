@@ -1,7 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import { useContext } from "react";
 import { AllContext } from "../../../app/context";
-import NextWeekOutlinedIcon from "@mui/icons-material/NextWeekOutlined";
 import RemoveIcon from "@mui/icons-material/Remove";
 import StarIcon from "@mui/icons-material/Star";
 import { Button, IconButton } from "@mui/material";
@@ -10,6 +9,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Image from "next/image";
 import React from "react";
 import { sign } from "crypto";
+import OrderSuccess from "./Ordersuccess";
 
 interface ProductCardProps {
   id: number | string;
@@ -98,14 +98,11 @@ function ProductDetails({ product }: { product: ProductCardProps }) {
             </IconButton>
           </div>
 
-          <Button
-            variant="contained"
-            className="text-sm md:text-md w-[60%] bg-black text-white rounded-full flex justify-center items-center md:gap-2"
-            onClick={() => onhandleAddCart(product)}
-          >
-            <NextWeekOutlinedIcon />{" "}
-            <span className="md:mt-1">Add to Cart</span>
-          </Button>
+          <OrderSuccess
+            product={product}
+            type="view"
+            onHandleClick={onhandleAddCart}
+          />
         </div>
         <div className="mt-5 w-full">
           <div
