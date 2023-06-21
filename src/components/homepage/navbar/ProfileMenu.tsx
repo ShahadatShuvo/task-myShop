@@ -189,15 +189,6 @@ export default function MenuBarIcon({
             )}
           </MenuItem>
 
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <PersonAdd
-                fontSize="small"
-                className={isLightTheme ? "" : "text-white"}
-              />
-            </ListItemIcon>
-            Add another account
-          </MenuItem>
           {/* Theme control start */}
           <MenuItem onClick={toggleTheme}>
             <AntSwitch checked={isLightTheme} />
