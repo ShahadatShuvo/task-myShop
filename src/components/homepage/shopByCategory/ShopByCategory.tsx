@@ -148,7 +148,11 @@ function ShopByCategory() {
                   className="text-blue-400"
                   onClick={() => setDisplaySearch(true)}
                 >
-                  <SearchOutlinedIcon />
+                  <SearchOutlinedIcon
+                    sx={{
+                      color: isLightTheme ? "gray" : "white",
+                    }}
+                  />
                 </IconButton>
               </div>
             )}
