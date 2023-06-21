@@ -48,7 +48,11 @@ function CategoryCard({ product }: { product: ProductCardProps }) {
 
           <div className="flex items-center">
             <CartViewDialogue product={product} />
-            <OrderSuccess onHandleClick={onHandleClick} product={product} />
+            <OrderSuccess
+              type="icon"
+              onHandleClick={onHandleClick}
+              product={product}
+            />
           </div>
         </div>
       </div>

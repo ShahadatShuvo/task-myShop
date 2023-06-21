@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@mui/material";
 import Image from "next/image";
 import { useContext } from "react";
 import { AllContext } from "../../../app/context";
 import React from "react";
+import OrderSuccess from "../shopByCategory/Ordersuccess";
 
 interface ProductCardProps {
   id: number | string;
@@ -47,14 +47,12 @@ function FeaturedCard({ product }: { product: ProductCardProps }) {
           <p className="mt-2 text-blue-500 text-center">$ {product.price}</p>
         </div>
       </div>
-      <Button
-        variant="contained"
-        size="small"
-        className="rounded-full bg-black mt-3"
-        onClick={() => onHandleClick(product)}
-      >
-        Order Now
-      </Button>
+
+      <OrderSuccess
+        type="btn"
+        onHandleClick={onHandleClick}
+        product={product}
+      />
     </div>
   );
 }

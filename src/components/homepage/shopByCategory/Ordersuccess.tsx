@@ -1,6 +1,7 @@
 "use-client";
 
 import { SnackbarProvider, VariantType, useSnackbar } from "notistack";
+import { Button } from "@mui/material";
 import { IconButton } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import * as React from "react";
@@ -22,9 +23,11 @@ interface ProductCardProps {
 function MyApp({
   onHandleClick,
   product,
+  type,
 }: {
   onHandleClick: any;
   product: ProductCardProps;
+  type: string;
 }) {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -39,9 +42,20 @@ function MyApp({
 
   return (
     <React.Fragment>
-      <IconButton aria-label="added" onClick={handleClickVariant("success")}>
-        <AddCircleOutlineIcon color="success" />
-      </IconButton>
+      {type === "btn" ? (
+        <Button
+          variant="contained"
+          size="small"
+          className="rounded-full bg-black mt-3"
+          onClick={handleClickVariant("success")}
+        >
+          Order Now
+        </Button>
+      ) : (
+        <IconButton aria-label="added" onClick={handleClickVariant("success")}>
+          <AddCircleOutlineIcon color="success" />
+        </IconButton>
+      )}
     </React.Fragment>
   );
 }
@@ -49,13 +63,15 @@ function MyApp({
 export default function OrderSuccess({
   onHandleClick,
   product,
+  type,
 }: {
   onHandleClick: any;
   product: ProductCardProps;
+  type: string;
 }) {
   return (
     <SnackbarProvider maxSnack={3}>
-      <MyApp onHandleClick={onHandleClick} product={product} />
+      <MyApp type={type} onHandleClick={onHandleClick} product={product} />
     </SnackbarProvider>
   );
 }
