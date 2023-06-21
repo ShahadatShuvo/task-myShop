@@ -18,7 +18,6 @@ function FeaturedProduct() {
   const { isLightTheme, toggleTheme, allProducts } = useContext(AllContext);
 
   const [data, setData] = useState<any>(null);
-  console.log("data:", data);
 
   const scrollRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
