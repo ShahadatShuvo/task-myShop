@@ -113,6 +113,9 @@ function TrendingProducts() {
           <div className="hidden md:block absolute right-16">
             <IconButton
               aria-label="left"
+              sx={{
+                color: isLightTheme ? "black" : "white",
+              }}
               className={
                 isLightTheme
                   ? "active:text-blue-400"
@@ -124,6 +127,9 @@ function TrendingProducts() {
             </IconButton>
             <IconButton
               aria-label="right"
+              sx={{
+                color: isLightTheme ? "black" : "white",
+              }}
               className={
                 isLightTheme
                   ? "active:text-blue-400"
