@@ -23,10 +23,6 @@ function ShopByCategory() {
   const [category, setCategory] = React.useState("");
   const [displaySearch, setDisplaySearch] = React.useState(false);
 
-  const handleCategoryChange = (event: SelectChangeEvent) => {
-    setCategory(event.target.value);
-  };
-
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
@@ -78,7 +74,13 @@ function ShopByCategory() {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
+    setCategory("");
   };
+  const handleCategoryChange = (event: SelectChangeEvent) => {
+    setCategory(event.target.value);
+    setSearchValue("");
+  };
+
   return (
     <div className="md:mt-64 mx-5 md:mx-24">
       <div className="flex flex-col md:flex-row items-center md:justify-between">
