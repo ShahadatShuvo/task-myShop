@@ -92,9 +92,9 @@ function Navbar() {
         </Collapse>
       </div>
       <header className="text-gray-600 body-font bg-[#1D65FF]">
-        <div className="py-3 container mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <div className="px-4 pt-1 md:pt-3 md:px-0 md:py-3 container mx-auto flex flex-wrap md:flex-row justify-between items-center">
           <a
-            className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+            className="flex title-font font-medium items-center text-gray-900 pt-1 pb-2 md:pb-0 md:pt-0"
             href="/"
           >
             <Image
@@ -105,45 +105,17 @@ function Navbar() {
               className="h-[40px] w-[140px] rounded-full object-cover"
             />
           </a>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <div className="mb-3 md:mb-0 w-[80%] md:w-[40vw] md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-              {displaySearch && (
-                <div className="w-full relative flex items-center">
-                  <input
-                    type="text"
-                    name="search"
-                    id="search"
-                    placeholder="Type your keywords here"
-                    autoFocus
-                    //   onChange={handleSearchChange}
-                    //   value={searchValue}
-                    className="bg-blue-50 h-7 md:h-10 shadow-sm  block w-full sm:text-sm rounded-full px-8 md:px-12 focus:outline-none text-sm md:text-md"
-                  />
-                  <div className="absolute left-1 md:left-3">
-                    <SearchOutlinedIcon />
-                  </div>
-                  <div className="absolute right-0 md:right-2">
-                    <IconButton
-                      aria-label="delete"
-                      onClick={() => setDisplaySearch(false)}
-                    >
-                      <CloseIcon />
-                    </IconButton>
-                  </div>
-                </div>
-              )}
-            </div>
-          </nav>
+
           {/* new div  */}
           <div className="flex items-center">
-            {!displaySearch && (
+            {/* {!displaySearch && (
               <IconButton
                 className="text-white"
                 onClick={() => setDisplaySearch(true)}
               >
                 <SearchOutlinedIcon />
               </IconButton>
-            )}
+            )} */}
             <MenuBarIcon
               openHeadline={openHeadline}
               setOpenHeadline={setOpenHeadline}
