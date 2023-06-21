@@ -5,6 +5,8 @@ import NextWeekOutlinedIcon from "@mui/icons-material/NextWeekOutlined";
 import RemoveIcon from "@mui/icons-material/Remove";
 import StarIcon from "@mui/icons-material/Star";
 import { Button, IconButton } from "@mui/material";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+
 import Image from "next/image";
 import React from "react";
 import { sign } from "crypto";
