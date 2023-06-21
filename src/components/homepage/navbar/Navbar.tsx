@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AllContext } from "../../../app/context";
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link, Element, animateScroll as scroll } from "react-scroll";
+import { useEffect } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Badge, IconButton } from "@mui/material";
 import Image from "next/image";
@@ -12,6 +14,8 @@ import CartMenu from "./CartMenu";
 import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
+
+const scrollDuration = 500; // Animation duration in milliseconds
 
 function Navbar() {
   const { isLightTheme, allProducts } = useContext(AllContext);
@@ -108,14 +112,20 @@ function Navbar() {
 
           {/* new div  */}
           <div className="flex items-center">
-            {/* {!displaySearch && (
+            <Link
+              to="search"
+              smooth={true}
+              duration={scrollDuration}
+              offset={-50}
+            >
               <IconButton
                 className="text-white"
                 onClick={() => setDisplaySearch(true)}
               >
                 <SearchOutlinedIcon />
               </IconButton>
-            )} */}
+            </Link>
+
             <MenuBarIcon
               openHeadline={openHeadline}
               setOpenHeadline={setOpenHeadline}
