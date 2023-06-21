@@ -94,11 +94,10 @@ export default function MenuBarIcon({
           <IconButton
             onClick={handleClick}
             size="small"
-            sx={{ ml: 2 }}
+            sx={{ ml: 2, color: "white" }}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            className="text-white"
           >
             <AccountCircleIcon fontSize="large" />
           </IconButton>

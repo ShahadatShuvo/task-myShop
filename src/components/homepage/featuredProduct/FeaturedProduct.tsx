@@ -74,6 +74,9 @@ function FeaturedProduct() {
           <div className="flex w-full">
             <IconButton
               aria-label="left"
+              sx={{
+                color: isLightTheme ? "gray" : "white",
+              }}
               className={
                 isLightTheme
                   ? "active:text-blue-400"
@@ -85,6 +88,9 @@ function FeaturedProduct() {
             </IconButton>
             <IconButton
               aria-label="right"
+              sx={{
+                color: isLightTheme ? "gray" : "white",
+              }}
               className={
                 isLightTheme
                   ? "active:text-blue-400"
