@@ -106,10 +106,14 @@ function ShopByCategory() {
                 autoFocus
                 onChange={handleSearchChange}
                 value={searchValue}
-                className="bg-blue-50 h-7 md:h-10 shadow-sm  block w-full sm:text-sm rounded-full px-8 md:px-12 focus:outline-none text-sm md:text-md"
+                className={
+                  isLightTheme
+                    ? "bg-blue-50 h-7 md:h-10 shadow-sm  block w-full sm:text-sm rounded-full px-8 md:px-12 focus:outline-none text-sm md:text-md"
+                    : "text-black bg-blue-50 h-7 md:h-10 shadow-sm  block w-full sm:text-sm rounded-full px-8 md:px-12 focus:outline-none text-sm md:text-md"
+                }
               />
               <div className="absolute left-1 md:left-3">
-                <SearchOutlinedIcon />
+                <SearchOutlinedIcon className="text-black" />
               </div>
               <div className="absolute right-0 md:right-2">
                 <IconButton aria-label="delete" onClick={onhandleSearchClose}>
@@ -122,7 +126,11 @@ function ShopByCategory() {
         <div className="flex items-center mt-5 md:mt-0">
           {!displaySearch && (
             <div
-              className="flex items-center pl-2 rounded-lg mr-1 hover:bg-blue-200"
+              className={
+                isLightTheme
+                  ? "flex items-center pl-2 rounded-lg mr-1 hover:bg-blue-200"
+                  : "flex items-center pl-2 rounded-lg mr-1 hover:bg-white hover:text-black"
+              }
               onClick={() => setDisplaySearch(true)}
             >
               <p>search</p>
@@ -135,7 +143,10 @@ function ShopByCategory() {
             </div>
           )}
           <FormControl sx={{ minWidth: 188 }} size="small">
-            <InputLabel id="demo-select-small-label">
+            <InputLabel
+              id="demo-select-small-label"
+              sx={{ color: isLightTheme ? "black" : "white" }}
+            >
               Select a Category
             </InputLabel>
             <Select
@@ -144,6 +155,10 @@ function ShopByCategory() {
               value={category}
               label="Select a Category"
               onChange={handleCategoryChange}
+              sx={{
+                color: isLightTheme ? "black" : "white",
+                borderColor: isLightTheme ? "black" : "white",
+              }}
             >
               <MenuItem value="">
                 <em>All products</em>
