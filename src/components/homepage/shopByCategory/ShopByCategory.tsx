@@ -5,10 +5,12 @@ import { useContext } from "react";
 import { AllContext } from "../../../app/context";
 import AllProductsDisplay from "./AllProductsDisplay";
 import InputLabel from "@mui/material/InputLabel";
+import CloseIcon from "@mui/icons-material/Close";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Pagination } from "@mui/material";
+import { IconButton, Pagination } from "@mui/material";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -16,9 +18,10 @@ function ShopByCategory() {
   const { isLightTheme, toggleTheme, allProducts } = useContext(AllContext);
   const [data, setData] = useState<any>(null);
   const [allCategories, setAllCategories] = useState<any>(null);
-  console.log("allCategories:", allCategories);
   const [page, setPage] = React.useState(1);
+  const [searchValue, setSearchValue] = React.useState("");
   const [category, setCategory] = React.useState("");
+  const [displaySearch, setDisplaySearch] = React.useState(false);
 
   const handleCategoryChange = (event: SelectChangeEvent) => {
     setCategory(event.target.value);
@@ -33,7 +36,9 @@ function ShopByCategory() {
     const fetchData = async () => {
       try {
         let response;
-        if (category) {
+        if (searchValue) {
+          response = await fetch(`${apiUrl}/products/search?q=${searchValue}`);
+        } else if (category) {
           response = await fetch(`${apiUrl}/products/category/${category}`);
         } else {
           response = await fetch(
@@ -51,7 +56,7 @@ function ShopByCategory() {
       }
     };
     fetchData();
-  }, [page, category]);
+  }, [page, category, searchValue]);
 
   // get category list
   useEffect(() => {
@@ -71,10 +76,13 @@ function ShopByCategory() {
     fetchData();
   }, [page]);
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
   return (
     <div className="md:mt-64 mx-5 md:mx-24">
       <div className="flex flex-col md:flex-row items-center md:justify-between">
-        <div>
+        <div className="w-[60%]">
           <h1 className="capitalize text-xl md:text-4xl font-bold md:font-semibold">
             Shop by category
           </h1>
@@ -82,8 +90,49 @@ function ShopByCategory() {
             Life is hard enough already. Let us make it a little easier.
           </p>
         </div>
-        <div className="mt-5 md:mt-0">
-          <FormControl sx={{ marginTop: 2, minWidth: 188 }} size="small">
+        <div className="w-full flex justify-center">
+          {displaySearch && (
+            <div className="mt-5 md:mt-0 w-full md:w-[70%] relative flex items-center">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Type your keywords here"
+                autoFocus
+                onChange={handleSearchChange}
+                value={searchValue}
+                className="bg-blue-50 h-7 md:h-10 shadow-sm  block w-full sm:text-sm rounded-full px-8 md:px-12 focus:outline-none text-sm md:text-md"
+              />
+              <div className="absolute left-1 md:left-3">
+                <SearchOutlinedIcon />
+              </div>
+              <div className="absolute right-0 md:right-2">
+                <IconButton
+                  aria-label="delete"
+                  onClick={() => setDisplaySearch(false)}
+                >
+                  <CloseIcon />
+                </IconButton>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="flex items-center mt-5 md:mt-0">
+          {!displaySearch && (
+            <div
+              className="flex items-center pl-2 rounded-lg mr-1 hover:bg-blue-200"
+              onClick={() => setDisplaySearch(true)}
+            >
+              <p>search</p>
+              <IconButton
+                className="text-blue-400"
+                onClick={() => setDisplaySearch(true)}
+              >
+                <SearchOutlinedIcon />
+              </IconButton>
+            </div>
+          )}
+          <FormControl sx={{ minWidth: 188 }} size="small">
             <InputLabel id="demo-select-small-label">
               Select a Category
             </InputLabel>
