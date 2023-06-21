@@ -119,7 +119,9 @@ function Navbar() {
               offset={-50}
             >
               <IconButton
-                className="text-white"
+                sx={{
+                  color: "white",
+                }}
                 onClick={() => setDisplaySearch(true)}
               >
                 <SearchOutlinedIcon />

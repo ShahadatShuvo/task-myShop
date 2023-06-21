@@ -97,11 +97,10 @@ export default function CartMenu() {
           <IconButton
             onClick={handleClick}
             size="small"
-            sx={{ ml: 2, mt: "4px", p: "4px" }}
+            sx={{ ml: 2, mt: "4px", p: "4px", color: "white" }}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            className="text-white"
           >
             <AddShoppingCartIcon fontSize="medium" />
           </IconButton>

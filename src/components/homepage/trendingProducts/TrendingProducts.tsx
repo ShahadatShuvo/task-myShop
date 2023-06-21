@@ -114,7 +114,7 @@ function TrendingProducts() {
             <IconButton
               aria-label="left"
               sx={{
-                color: isLightTheme ? "black" : "white",
+                color: isLightTheme ? "gray" : "white",
               }}
               className={
                 isLightTheme
@@ -128,7 +128,7 @@ function TrendingProducts() {
             <IconButton
               aria-label="right"
               sx={{
-                color: isLightTheme ? "black" : "white",
+                color: isLightTheme ? "gray" : "white",
               }}
               className={
                 isLightTheme

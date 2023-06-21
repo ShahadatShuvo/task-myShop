@@ -73,6 +73,9 @@ function Testimonial() {
           <div className="mt-5 md:mt-10">
             <IconButton
               aria-label="left"
+              sx={{
+                color: isLightTheme ? "gray" : "white",
+              }}
               className={
                 isLightTheme
                   ? "active:text-blue-400"
@@ -84,6 +87,9 @@ function Testimonial() {
             </IconButton>
             <IconButton
               aria-label="right"
+              sx={{
+                color: isLightTheme ? "gray" : "white",
+              }}
               className={
                 isLightTheme
                   ? "active:text-blue-400"
