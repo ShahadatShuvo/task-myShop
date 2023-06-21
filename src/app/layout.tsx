@@ -66,6 +66,7 @@ export default function RootLayout({
   };
 
   const increaseCartValue = (newValue: AllProductsInterface) => {
+    console.log("newValue qty", newValue.qty);
     setAllProducts((prevState: AllProductsInterface[] | any) => {
       const isExist = prevState.find(
         (item: AllProductsInterface) => item.id === newValue.id
@@ -80,6 +81,9 @@ export default function RootLayout({
           }
           return item;
         });
+      }
+      if (newValue.qty) {
+        return [...prevState, { ...newValue, qty: newValue.qty + 1 }];
       }
       return [...prevState, { ...newValue, qty: 1 }];
     });
