@@ -80,7 +80,10 @@ function ShopByCategory() {
     setCategory(event.target.value);
     setSearchValue("");
   };
-
+  const onhandleSearchClose = () => {
+    setDisplaySearch(false);
+    setSearchValue("");
+  };
   return (
     <div className="md:mt-64 mx-5 md:mx-24">
       <div className="flex flex-col md:flex-row items-center md:justify-between">
@@ -109,10 +112,7 @@ function ShopByCategory() {
                 <SearchOutlinedIcon />
               </div>
               <div className="absolute right-0 md:right-2">
-                <IconButton
-                  aria-label="delete"
-                  onClick={() => setDisplaySearch(false)}
-                >
+                <IconButton aria-label="delete" onClick={onhandleSearchClose}>
                   <CloseIcon />
                 </IconButton>
               </div>
