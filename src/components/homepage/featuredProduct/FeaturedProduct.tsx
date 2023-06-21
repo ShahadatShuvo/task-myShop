@@ -59,12 +59,12 @@ function FeaturedProduct() {
   return (
     <div className="md:mt-32 mx-5 md:mx-32">
       <div className="text-center relative">
-        <h1 className="text-xl md:text-3xl font-semibold">
+        <h1 className="text-lg md:text-3xl font-semibold">
           Featured Product For Pre-Order
         </h1>
         <a
           href="/"
-          className="text-sm absolute right-5 top-10 md:top-2 hover:text-blue-400"
+          className="text-sm absolute right-5 top-16 md:top-2 hover:text-blue-400"
         >
           Discover Our Products <ArrowRightAltIcon />
         </a>
