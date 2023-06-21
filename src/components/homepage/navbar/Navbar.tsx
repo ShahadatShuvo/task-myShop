@@ -107,7 +107,7 @@ function Navbar() {
           </a>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <div className="mb-3 md:mb-0 w-[80%] md:w-[40vw] md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-              {displaySearch && (
+              {/* {displaySearch && (
                 <div className="w-full relative flex items-center">
                   <input
                     type="text"
@@ -131,19 +131,19 @@ function Navbar() {
                     </IconButton>
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
           </nav>
           {/* new div  */}
           <div className="flex items-center">
-            {!displaySearch && (
+            {/* {!displaySearch && (
               <IconButton
                 className="text-white"
                 onClick={() => setDisplaySearch(true)}
               >
                 <SearchOutlinedIcon />
               </IconButton>
-            )}
+            )} */}
             <MenuBarIcon
               openHeadline={openHeadline}
               setOpenHeadline={setOpenHeadline}
