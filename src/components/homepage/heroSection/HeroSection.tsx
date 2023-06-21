@@ -1,6 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import Carousel from "./Carousel";
+import { Link, Element, animateScroll as scroll } from "react-scroll";
+import { useEffect } from "react";
+
+const scrollDuration = 500; // Animation duration in milliseconds
 
 function HeroSection() {
   return (
@@ -9,22 +13,64 @@ function HeroSection() {
         <nav className="hidden md:block">
           <ul className="pt-2 flex justify-between items-center">
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Jewelry & Accessories</a>
+              <Link
+                to="search"
+                smooth={true}
+                duration={scrollDuration}
+                offset={-50}
+              >
+                Jewelry & Accessories
+              </Link>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Clothing & Shoes</a>
+              <Link
+                to="search"
+                smooth={true}
+                duration={scrollDuration}
+                offset={-50}
+              >
+                Clothing & Shoes
+              </Link>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Home & Living</a>
+              <Link
+                to="search"
+                smooth={true}
+                duration={scrollDuration}
+                offset={-50}
+              >
+                Home & Living
+              </Link>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Wedding & Party</a>
+              <Link
+                to="search"
+                smooth={true}
+                duration={scrollDuration}
+                offset={-50}
+              >
+                Wedding & Party
+              </Link>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Toys & Entertainment</a>
+              <Link
+                to="search"
+                smooth={true}
+                duration={scrollDuration}
+                offset={-50}
+              >
+                Toys & Entertainment
+              </Link>
             </li>
             <li className="hover:border-b-2 hover:border-black hover:text-red-400">
-              <a href="/">Art & Collection</a>
+              <Link
+                to="search"
+                smooth={true}
+                duration={scrollDuration}
+                offset={-50}
+              >
+                Art & Collection
+              </Link>
             </li>
           </ul>
         </nav>
